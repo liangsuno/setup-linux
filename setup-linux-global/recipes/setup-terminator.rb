@@ -1,5 +1,5 @@
 #
-# Cookbook:: setup-linux
+# Cookbook:: setup-linux-global
 # Recipe:: setup-terminator
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.

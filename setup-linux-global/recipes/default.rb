@@ -5,6 +5,7 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 include_recipe '::setup-basics'
+include_recipe '::setup-git'
 include_recipe '::setup-ansible'
 include_recipe '::setup-docker'
 include_recipe '::setup-oracle-java'

@@ -1,5 +1,5 @@
 #
-# Cookbook:: setup-linux
+# Cookbook:: setup-linux-personal
 # Recipe:: setup-spring-boot-cli
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.

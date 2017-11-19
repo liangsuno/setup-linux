@@ -1,7 +1,11 @@
 #
 # Cookbook:: setup-linux-global
-# Recipe:: setup-oracle-java
+# Recipe:: setup-git
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-include_recipe 'java'
+apt_repository 'git' do
+  uri 'ppa:git-core/ppa'
+end
+
+package %w(git)

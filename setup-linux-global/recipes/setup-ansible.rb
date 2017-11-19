@@ -1,5 +1,5 @@
 #
-# Cookbook:: setup-linux
+# Cookbook:: setup-linux-global
 # Recipe:: setup-ansible
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.

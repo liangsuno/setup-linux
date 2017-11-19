@@ -1,5 +1,5 @@
 #
-# Cookbook:: setup-linux
+# Cookbook:: setup-linux-global
 # Recipe:: setup-docker
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
