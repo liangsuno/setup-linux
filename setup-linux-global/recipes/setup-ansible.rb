@@ -8,7 +8,11 @@ apt_repository 'ansible' do
   uri 'ppa:ansible/ansible'
 end
 
-package %w(software-properties-common ansible)
+package %w(software-properties-common)
+
+package %w(ansible)  do
+  action :upgrade
+end
 
 python_runtime '2'
 
