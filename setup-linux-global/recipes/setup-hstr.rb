@@ -4,8 +4,10 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-apt_repository 'hstr' do
-  uri 'ppa:ultradvorka/ppa'
+if node[:platform_family].include?("debian")
+  apt_repository 'hstr' do
+    uri 'ppa:ultradvorka/ppa'
+  end
 end
 
 package %w(hh)

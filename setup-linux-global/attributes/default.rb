@@ -10,3 +10,6 @@ default['java']['jdk']['8']['x86_64']['checksum'] = '218b3b340c3f6d05d940b817d02
 default['terraform']['version'] = '0.10.8'
 default['terraform']['url'] = 'https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip'
 default['terraform']['checksum'] = 'b786c0cf936e24145fad632efd0fe48c831558cc9e43c071fffd93f35e3150db'
+
+#default['docker']['version'] = 'docker-ce'
+default['setup-linux-global']['docker']['version'] = '1.12.6'

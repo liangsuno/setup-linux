@@ -19,9 +19,10 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 #
 # source_url 'https://github.com/<insert_org_here>/setup-linux-global'
 
+depends 'docker', '~> 2.0'
 depends 'chef-apt-docker'
-depends 'docker'
 depends 'maven'
 depends 'java'
 depends 'tar'
 depends 'poise-python'
+depends 'yum-epel'
