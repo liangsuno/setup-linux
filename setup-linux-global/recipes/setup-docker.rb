@@ -39,11 +39,11 @@ if node[:platform_family].include?("rhel")
   end
   docker_installation_package 'default' do
     action :create
-    only_if { node['docker']['version'] == 'docker-ce' }
+    only_if { node['setup-linux-global']['docker']['version'] == 'docker-ce' }
   end
 
   docker_service 'default' do
-    action [:create, :start, :enable]
+    action [:create, :start]
   end
 end
 
