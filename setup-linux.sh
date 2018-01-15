@@ -5,7 +5,7 @@ workingfolder=`pwd`
 rm -fr $vendor_folder
 cd $workingfolder/setup-linux-global
 berks vendor $vendor_folder
-sudo chef-client -z -o setup-linux-global
+sudo chef-client -z -o setup-linux-global -j $workingfolder/config.json
 sudo rm -fr $workingfolder/nodes
 
 #cd $workingfolder/setup-linux-personal

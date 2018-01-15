@@ -20,10 +20,6 @@ if node[:platform_family].include?("rhel")
   package %w(docker docker-common docker-selinux) do
     action :remove
   end
-  yum_package 'docker-engine' do
-    action :remove
-    only_if { node['setup-linux-global']['docker']['version'] == 'docker-ce' }
-  end
   package %w(yum-utils device-mapper-persistent-data lvm2)
   execute 'Import docker gpg key' do
     command "rpm --import 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e'"
@@ -32,18 +28,27 @@ if node[:platform_family].include?("rhel")
     command 'rpm --import https://yum.dockerproject.org/gpg'
   end
   if (node['setup-linux-global']['docker']['version'] == 'docker-ce')
+    yum_package 'docker-engine' do
+        action :remove
+    end
     execute 'Install docker-ce repo' do
       command 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
+    end
+    execute 'Enable docker-ce repo' do
+      command 'yum-config-manager --enable docker-ce'
     end
     docker_installation_package 'default' do
       action :create
     end
   else
-    execute 'Install docker-engine repo' do
-      command 'yum-config-manager --add-repo https://yum.dockerproject.org/repo/main/centos/7'
+    yum_package 'docker-ce' do
+        action :remove
     end
     execute 'Disable docker-ce repo' do
       command 'yum-config-manager --disable docker-ce'
+    end
+    execute 'Install docker-engine repo' do
+      command 'yum-config-manager --add-repo https://yum.dockerproject.org/repo/main/centos/7'
     end
     docker_installation_package 'default' do
       version node['setup-linux-global']['docker']['version']
