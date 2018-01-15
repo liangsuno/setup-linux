@@ -1,0 +1,3 @@
+{
+"setup-linux-global": { "docker": { "version": "docker-engine" } }
+}
