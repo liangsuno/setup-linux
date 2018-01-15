@@ -45,10 +45,13 @@ if node[:platform_family].include?("rhel")
         action :remove
     end
     execute 'Disable docker-ce repo' do
-      command 'yum-config-manager --disable docker-ce'
+      command 'yum-config-manager --disable docker-ce-stable'
     end
     execute 'Install docker-engine repo' do
       command 'yum-config-manager --add-repo https://yum.dockerproject.org/repo/main/centos/7'
+    end
+    execute 'Enable docker-engine repo' do
+      command 'yum-config-manager --enable yum.dockerproject.org_repo_main_centos_7'
     end
     docker_installation_package 'default' do
       version node['setup-linux-global']['docker']['version']
