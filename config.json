@@ -1,3 +1,3 @@
 {
-"setup-linux-global": { "docker": { "version": "docker-engine" } }
+"setup-linux-global": { "docker": { "version": "1.12.6" } }
 }
